@@ -1,0 +1,14 @@
+<div>
+  <h4>Hero Search</h4>
+  <input #searchBox (keyup)="search(searchBox.value)">
+
+  <ul>
+    <!-- heroes$ 是一个Observable，而不是一个数组 -->
+    <!-- *ngFor是不能直接调用Observable的，要跟着|async -->
+    <li *ngFor="let hero of heroes$ | async">
+      <a routerLink="/detail/{{hero.id}}">
+        {{hero.name}}
+      </a>
+    </li>
+  </ul>
+</div>
